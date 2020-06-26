@@ -9,7 +9,11 @@ def application(environ, start_response):
     a = d.get('a', [''])[0]
     b = d.get('b', [''])[0]
     if '' not in [a, b]:
-        a, b= int(a), int(b)
+	try:
+            a, b= int(a), int(b)
+	except ValueError:
+	    a = error
+	    b = 0
     else:
 	a, b= 1,1
     x = a+b
