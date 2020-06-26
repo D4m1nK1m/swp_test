@@ -10,10 +10,13 @@ def application(environ, start_response):
     b = d.get('b', [''])[0]
     if '' not in [a, b]:
         a, b= int(a), int(b)
-        x = a+b
-        y = a*b
-	with open('/var/www/html/img/result.txt','w')as f:
-		f.write("sum = {}, multiplied = {}".format(x,y))
+    else:
+	a, b= 1,1
+    x = a+b
+    y = a*b
+    with open('/var/www/html/img/result.txt','w')as f:
+	f.write("sum = {}, multiplied = {}".format(x,y))
+		
     response_body = html.replace("TEST","sum = "+str(x)+" multiplied = "+str(y))
     
     start_response('200 OK', [
