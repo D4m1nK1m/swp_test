@@ -15,7 +15,7 @@ def application(environ, start_response):
 	    a = error
 	    b = 0
     else:
-	a, b= 1,1
+	a, b= 0,0
     x = a+b
     y = a*b
     with open('/var/www/html/img/result.txt','w')as f:
